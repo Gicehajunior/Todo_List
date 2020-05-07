@@ -54,7 +54,10 @@ function action(e){
 
         // animation when trying to remove the todo list item
         todoUndeletedItem.classList.add("fall"); 
-        // todoUndeletedItem.remove();
+        todoUndeletedItem.addEventListener('transitioned', function(){
+            todoUndeletedItem.remove();
+        });
+        
     }
 
     // checking up the item todo item
@@ -70,9 +73,8 @@ function filterTodo(e){
     todos.forEach(function(todo){
         switch (e.target.value) {
             case "all":
-                
+                todo.style.display = "flex";
                 break;
-        
             case "completed":
                 if(todo.classList.contains('completed')){
                     todo.style.display = "flex";
@@ -82,7 +84,7 @@ function filterTodo(e){
                 }
                 break;
             case "uncompleted":
-                if(!todo.classList.contains('uncompleted')){
+                if(todo.classList.contains('uncompleted')){
                     todo.style.display = "flex";
                 }
                 else{
