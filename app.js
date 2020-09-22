@@ -12,9 +12,9 @@ filterOption.addEventListener('click', filterTodo);
 
 // functions
 
-function addToDo(event){
+function addToDo(e){
     // prevent default : prevents the browser from reloading
-    event.preventDefault();
+    e.preventDefault();
 
     // create todoDivElement
     const toDoDivElement = document.createElement("div");
